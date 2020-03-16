@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "329968738690",
+    "firebase_url": "https://ai-alerts.firebaseio.com",
+    "project_id": "ai-alerts",
+    "storage_bucket": "ai-alerts.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:329968738690:android:2908abf9072e61148a6f9b",
+        "android_client_info": {
+          "package_name": "io.gerben.aimonitor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "329968738690-sc4i6cecl78q0tstgrc94arqkq1b90in.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "io.gerben.aimonitor",
+            "certificate_hash": "c02381dd819826ce82dd65c9cad770ebeb8cd2bb"
+          }
+        },
+        {
+          "client_id": "329968738690-ui7cbfhrtc9s3eprckr4ctb3jto0dl9t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpFXIKDj2AswfYhX-ndd7-YAYIliZ97hU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "329968738690-ui7cbfhrtc9s3eprckr4ctb3jto0dl9t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
