@@ -53,6 +53,8 @@ class _PushMessagingExampleState extends State<PushMessagingExample> {
 
   @override
   Widget build(BuildContext context) {
+    final _biggerFont = const TextStyle(fontSize: 16.0);
+
     return Scaffold(
         appBar: AppBar(
           title: const Text('Brainiacs Azure App Insights Monitor'),
@@ -60,14 +62,15 @@ class _PushMessagingExampleState extends State<PushMessagingExample> {
         body: Material(
           child: Column(
             children: <Widget>[
+              Row(children: <Widget>[
+                Expanded(
+                  child: Text(_messageText, style: _biggerFont),
+                ),
+              ]),
+              Spacer(),
               Center(
                 child: Text(_homeScreenText),
               ),
-              Row(children: <Widget>[
-                Expanded(
-                  child: Text(_messageText),
-                ),
-              ])
             ],
           ),
         ));
