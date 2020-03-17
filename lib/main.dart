@@ -55,7 +55,7 @@ class _PushMessagingExampleState extends State<PushMessagingExample> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Push Messaging Demo'),
+          title: const Text('Brainiacs Azure App Insights Monitor'),
         ),
         body: Material(
           child: Column(
