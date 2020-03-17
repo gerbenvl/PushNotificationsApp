@@ -13,32 +13,35 @@ class _PushMessagingExampleState extends State<PushMessagingExample> {
   @override
   void initState() {
     super.initState();
+
     _firebaseMessaging.configure(
       onMessage: (Map<String, dynamic> message) async {
         setState(() {
-          _messageText = "Push Messaging message: $message";
+          _messageText = "onMessage Push Messaging message: $message";
         });
         print("onMessage: $message");
       },
       onLaunch: (Map<String, dynamic> message) async {
         setState(() {
-          _messageText = "Push Messaging message: $message";
+          _messageText = "onLaunch Push Messaging message: $message";
         });
         print("onLaunch: $message");
       },
       onResume: (Map<String, dynamic> message) async {
         setState(() {
-          _messageText = "Push Messaging message: $message";
+          _messageText = "onResume Push Messaging message: $message";
         });
         print("onResume: $message");
       },
     );
+
     _firebaseMessaging.requestNotificationPermissions(
         const IosNotificationSettings(sound: true, badge: true, alert: true));
     _firebaseMessaging.onIosSettingsRegistered
         .listen((IosNotificationSettings settings) {
       print("Settings registered: $settings");
     });
+
     _firebaseMessaging.getToken().then((String token) {
       assert(token != null);
       setState(() {
