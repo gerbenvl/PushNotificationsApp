@@ -7,6 +7,7 @@ class PushMessaging extends StatefulWidget {
 }
 
 class _PushMessagingState extends State<PushMessaging> {
+  String _homeScreenText = "Waiting for token...";
   String _messageText = "Waiting for message...";
   final FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
 
@@ -17,17 +18,17 @@ class _PushMessagingState extends State<PushMessaging> {
     _firebaseMessaging.configure(
       onMessage: (Map<String, dynamic> message) async {
         setState(() {
-          _messageText = message;
+          _messageText = "$message";
         });
       },
       onLaunch: (Map<String, dynamic> message) async {
         setState(() {
-          _messageText = message;
+          _messageText = "$message";
         });
       },
       onResume: (Map<String, dynamic> message) async {
         setState(() {
-          _messageText = message;
+          _messageText = "$message";
         });
       },
     );
@@ -37,10 +38,19 @@ class _PushMessagingState extends State<PushMessaging> {
       print("Settings registered: $settings");
     });
 
-    _firebaseMessaging.subscribeToTopic("All");
+     _firebaseMessaging.getToken().then((String token) {
+      assert(token != null);
+      setState(() {
+        _homeScreenText = "Push Messaging token received. ";
+      });
+    });
+
+    _firebaseMessaging.subscribeToTopic("All").then((val) {
+      _homeScreenText += "Subscribed to All.";
+    });
   }
 
-  @override
+   @override
   Widget build(BuildContext context) {
     final _biggerFont = const TextStyle(fontSize: 16.0);
 
@@ -56,6 +66,10 @@ class _PushMessagingState extends State<PushMessaging> {
                   child: Text(_messageText, style: _biggerFont),
                 ),
               ]),
+              Spacer(),
+              Center(
+                child: Text(_homeScreenText),
+              ),
             ],
           ),
         ));
