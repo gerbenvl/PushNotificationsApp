@@ -1,15 +1,16 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 
-class PushMessagingExample extends StatefulWidget {
+class PushMessaging extends StatefulWidget {
   @override
-  _PushMessagingExampleState createState() => _PushMessagingExampleState();
+  _PushMessagingState createState() => _PushMessagingState();
 }
 
-class _PushMessagingExampleState extends State<PushMessagingExample> {
+class _PushMessagingState extends State<PushMessaging> {
   String _homeScreenText = "Waiting for token...";
   String _messageText = "Waiting for message...";
   final FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
+  
   @override
   void initState() {
     super.initState();
@@ -84,7 +85,7 @@ class _PushMessagingExampleState extends State<PushMessagingExample> {
 void main() {
   runApp(
     MaterialApp(
-      home: PushMessagingExample(),
+      home: PushMessaging(),
     ),
   );
 }
