@@ -8,7 +8,7 @@ class PushMessaging extends StatefulWidget {
 
 class _PushMessagingState extends State<PushMessaging> {
   String _homeScreenText = "Waiting for token...";
-  String _messageText = "Waiting for message...";
+  String _messageText = "Waiting for messages. You can close the application now, notifications will popup.";
   final FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
 
   @override
@@ -41,12 +41,12 @@ class _PushMessagingState extends State<PushMessaging> {
      _firebaseMessaging.getToken().then((String token) {
       assert(token != null);
       setState(() {
-        _homeScreenText = "Push Messaging token received. ";
+        _homeScreenText += "Push Messaging token received. ";
       });
     });
 
     _firebaseMessaging.subscribeToTopic("All").then((val) {
-      _homeScreenText += "Subscribed to All.";
+      _homeScreenText += "Subscribed to All. ";
     });
   }
 
@@ -56,7 +56,7 @@ class _PushMessagingState extends State<PushMessaging> {
 
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Brainiacs Azure App Insights Monitor'),
+          title: const Text('Brainiacs Alert'),
         ),
         body: Material(
           child: Column(
